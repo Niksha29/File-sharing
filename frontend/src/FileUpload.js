@@ -61,12 +61,13 @@ const FileUpload = () => {
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     if (!downloadLink) return;
-
+    const uuide = downloadLink.split('/').pop();
     try {
       await axios.post("http://localhost:8000/api/files/send", {
-        from: emailData.fromEmail,
-        to: emailData.toEmail,
-        fileLink: downloadLink,
+        uuid:uuide,
+        emailfrom: emailData.fromEmail,
+        emailto: emailData.toEmail,
+        // fileLink: downloadLink,
       });
       alert("File sent via email!");
     } catch (err) {

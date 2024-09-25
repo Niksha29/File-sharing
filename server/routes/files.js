@@ -66,9 +66,9 @@ router.post('/send', async (req, res) => {
             return res.status(404).send({ error: 'File not found' });
         }
 
-        if (file.sender) {
-            return res.status(422).send({ error: 'Email already sent.' });
-        }
+        // if (file.sender) {
+        //     return res.status(422).send({ error: 'Email already sent.' });
+        // }
 
         // Save email sender and receiver
         file.sender = emailfrom;
